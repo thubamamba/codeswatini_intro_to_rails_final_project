@@ -1,0 +1,52 @@
+<%= form_with(model: event) do |form| %>
+  <% if event.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+        <% event.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# Event Name %>
+  <div class="flex flex-col mb-4">
+    <%= form.label :event_name, style: "leading-loose" %>
+    <%= form.text_field :event_name, class: "px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600", placeholder: "Luju Festival" %>
+  </div>
+
+  <%# Event Description %>
+  <div class="flex flex-col mb-4">
+    <%= form.label :event_description, style: "leading-loose" %>
+    <%= form.text_area :event_description, class: "px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600", placeholder: "Eat, Sway, Love... Hosted by Standard Bank Eswatini" %>
+  </div>
+
+  <%# Entrance Fee %>
+  <div class="flex flex-col mb-4">
+    <%= form.label :entrance_fee, style: "leading-loose" %>
+    <%= form.text_field :entrance_fee, class: "px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" %>
+  </div>
+
+  <%# Event Date %>
+  <div class="flex flex-col mb-4">
+    <%= form.label :event_date, style: "leading-loose" %>
+    <%= form.datetime_field :event_date, class: "px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600" %>
+  </div>
+
+  <%# Event Location %>
+  <div class="flex flex-col mb-4">
+    <%= form.label :event_location, style: "leading-loose" %>
+    <%= form.text_field :event_location, class: "px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600", placeholder: "Malandelas" %>
+  </div>
+
+  <%# Event Host %>
+  <div class="flex flex-col mb-4">
+    <%= form.label :event_host, style: "leading-loose" %>
+    <%= form.text_field :event_host, class: "px-4 py-2 border focus:ring-gray-500 focus:border-gray-900 w-full sm:text-sm border-gray-300 rounded-md focus:outline-none text-gray-600", placeholder: "Standard Bank Eswatini" %>
+  </div>
+
+  <%# Submit Button %>
+  <%= form.submit "Submit Event", class: "bg-blue-500 flex justify-center items-center w-full text-white px-4 py-3 rounded-md focus:outline-none" %>
+<% end %>

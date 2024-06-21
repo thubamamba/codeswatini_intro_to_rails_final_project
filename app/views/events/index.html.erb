@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+<div class="h-screen bg-gray-100">
+    <%# Intro section %>
+    <section class="py-6 dark:bg-gray-100 dark:text-gray-900">
+      <div class="container mx-auto flex flex-col items-center justify-center p-4 space-y-8 md:p-10 lg:space-y-0 lg:flex-row lg:justify-between">
+        <h1 class="text-3xl font-semibold leading-tight text-center lg:text-left">Tini Events</h1>
+        <%= link_to "New event", new_event_path, class: "px-8 py-3 text-lg font-semibold rounded dark:bg-violet-600 dark:text-gray-50" %>
+      </div>
+    </section>
+
+    <%# Main Content %>
+    <div id="events">
+      <div class="container m-auto grid grid-cols-3 gap-4">
+        <% @events.each do |event| %>
+          <div class="w-full p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+            <div class="mt-6 mb-6">
+              <span class="block text-xl font-medium tracking-widest uppercase dark:text-violet-600"><%= event.event_name %></span>
+              <h2 class="text-lg font-semibold tracking-wide">Hosted by <%= event.event_host %></h2>
+            </div>
+            <%= link_to "Show this event", event, class: "bg-violet-500 text-white px-4 py-3 rounded-md focus:outline-none" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>

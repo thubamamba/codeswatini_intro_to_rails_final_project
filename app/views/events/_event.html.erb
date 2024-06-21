@@ -1,0 +1,23 @@
+<div class="max-w-xs p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+  <div class="mt-6 mb-2">
+    <span class="block text-xl font-medium tracking-widest uppercase dark:text-violet-600"><%= event.event_name %></span>
+    <h2 class="text-lg font-semibold tracking-wide">Hosted by <%= event.event_host %></h2>
+  </div>
+  <%# Event Description %>
+  <p class="dark:text-gray-800"><%= event.event_description %></p>
+  <%# Event Date %>
+  <div class="mt-4">
+    <span class="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">Event Date</span>
+    <span class="block text-sm font-semibold tracking-wide">  <%= event.event_date.strftime('%B %d, %Y %I:%M %p') %></span>
+  </div>
+  <%# Entrance fee %>
+  <div class="mt-4">
+    <span class="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">Event Fee</span>
+    <span class="block text-sm font-semibold tracking-wide">  <%= event.entrance_fee %></span>
+  </div>
+  <%# Location %>
+  <div class="mt-4">
+    <span class="block text-xs font-medium tracking-widest uppercase dark:text-violet-600">Event Location</span>
+    <span class="block text-sm font-semibold tracking-wide">  <%= event.event_location %></span>
+  </div>
+</div>
